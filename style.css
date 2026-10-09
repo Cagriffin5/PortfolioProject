@@ -41,13 +41,11 @@ main img{
 span{
     color: #ED3814;
 }
-nav ul{
+
+ul { 
+    width: 25rem;
     display: flex;
     flex-wrap: wrap;
-}
-ul { 
-    width: 31.25rem;
-    display: flex;
     justify-content: space-evenly;
 }
 li{
