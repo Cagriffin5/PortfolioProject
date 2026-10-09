@@ -1,0 +1,172 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    background-color: #ED3814;
+}
+header h2, .about h2, .project h2 {
+    font-family: "Geo", sans-serif;
+    font-size: 3rem;
+    color: #ED3814;
+}
+.job, h3, h4{
+    font-family: Arial, Helvetica, sans-serif;
+}
+main{
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+main img{
+    height: 25rem;
+    width: 25rem;
+    margin: 1.5rem;
+    border-radius: 25%;
+    box-shadow: 5px 5px 10px #ED3814;
+}
+span{
+    color: #ED3814;
+}
+ul { 
+    width: 31.25rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+li{
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    text-decoration: underline;
+}
+footer a {
+    color:#ED3814;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+ul li a {
+    display: block;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul li a:hover, a:active {
+    color: white;
+    font-family: "Geo",sans-serif;
+    font-size: 1.5rem;
+}
+a.active {
+    color: white;
+    font-family: 'Geo',sans-serif;
+    font-size: 2rem;
+}
+h1{
+    font-family: "Geo", sans-serif;
+    font-size: 3.5rem;
+    margin: .5rem;
+}
+h2{
+    font-size: 2rem;
+    margin: 0;
+    
+}
+ p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    word-spacing: .10em;
+ }
+
+/*Pages */
+main.about{
+    display: flex;
+}
+main.contact{
+    background-color: #ED3814;
+    display: flex;
+    flex-direction: row;
+}
+.projects{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 4rem; 
+   max-width: 1500px;
+   margin: 0 auto;
+}
+.projects a{
+    color:#ED3814;
+}
+.grid-item img{
+    box-shadow: none;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.grid-item{
+   overflow: hidden;
+}
+figcaption{
+    padding: 1rem;
+}
+figcaption p{
+    text-align: center;
+}
+
+section{
+    width:100%;
+    text-align: left;
+    padding: 5% 15%;
+}
+section.contact{
+    padding: 0;
+    text-align: center;
+}
+section.education, section.skills, section.skillz {
+    background-color: #ED3814;
+}
+section.skillz{
+    padding-top: 2.5%;
+    display: flex;
+    
+    
+}
+section.skills{
+    padding-bottom: 0;
+}
+section.education h2, section.skills h2, section.contact h2 {
+    color: white;
+}
+.skillz ul {
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+}
+.skillz li{
+    list-style: circle;
+    padding: 10px;
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+footer.contact{
+    display: flex;
+    justify-content: center;
+}
