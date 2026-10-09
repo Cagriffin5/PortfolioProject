@@ -41,6 +41,10 @@ main img{
 span{
     color: #ED3814;
 }
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+}
 ul { 
     width: 31.25rem;
     display: flex;
