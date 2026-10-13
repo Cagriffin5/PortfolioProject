@@ -8,83 +8,130 @@ html, body {
     display: flex;
     flex-direction: column;
 }
-/* Base Navbar Styles */
+a{
+    text-decoration: none;
+}
+/* Navbar desktop layout */
 .navbar {
-  border-bottom: 3px solid #ED3814;
   display: flex;
-  justify-content: space-between;
+  height: 80px;
+  width: 100%;
+  background: #1b1b1b;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #333;
+  justify-content: space-between;
+  padding: 0 50px;
+  border-bottom: 3px solid #ED3814;
 }
-.nav-logo a {
-  color: #ED3814;
-  font-family: "Geo", Arial, Helvetica, sans-serif;
-  text-decoration: none;
-  font-size: 2.5rem;
-  font-weight: bold;
+.nav-logo a{
+    color: #ED3814;
+    font-family: "Geo";
+    font-size: 2.5rem;
+    text-decoration: none;
 }
-
-.nav-links {
+.navbar .nav-links {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  width: 500px;
 }
 
-.nav-links a {
-  color: white;
+.navbar .nav-links li {
+  margin: 0 5px;
+}
+
+.navbar .nav-links li a {
   text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #ED3814; /* Green accent color */
-}
-
-/* Hide Hamburger Icon on Desktop */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-}
-
-.menu-toggle .bar {
-  height: 3px;
-  width: 25px;
-  background-color: white;
-  margin: 4px 0;
+  padding: 8px 15px;
+  border-radius: 5px;
   transition: all 0.3s ease;
 }
 
-/* Responsive Breakdown (Mobile Layout) */
-@media screen and (max-width: 768px) {
-  .menu-toggle {
-    display: flex; /* Show hamburger icon */
+.navbar .nav-links li a:hover,
+.navbar .nav-links li a.active {
+  color: black;
+  background: #ED3814;
+  font-family: "Geo", Arial, Helvetica, sans-serif;
+}
+
+/* Base styling for the Button element (Hidden on desktop) */
+.hamburger-btn {
+    display: none;
+  background: none;
+  padding: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* CSS-made horizontal lines inside the button */
+.hamburger-btn .line {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- Responsive Breakpoint (Mobile Viewport) --- */
+@media (max-width: 920px) {
+  .navbar {
+    padding: 0 30px;
   }
 
-  .nav-links {
-    display: none; /* Hide links by default on mobile */
-    flex-direction: column;
+  /* Reveal the button element on smaller screens */
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* Mobile Links Menu (Positioned off-screen by default) */
+  .navbar .nav-links {
+    position: fixed;
+    top: 30px;
+    left: -100%;
+    background: #111;
+    height: calc(100vh - 80px);
     width: 100%;
-    position: absolute;
-    top: 60px; /* Adjust based on navbar height */
-    left: 0;
-    background-color: #333;
-    padding: 1rem 0;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    transition: left 0.3s ease;
+  }
+
+  .navbar .nav-links li {
+    margin: 20px 0;
+    width: 100%;
     text-align: center;
   }
 
-  .nav-links li {
-    padding: 0.75rem 0;
+  .navbar .nav-links li a {
+    font-size: 22px;
+    display: inline-block;
   }
 
-  /* Class to trigger via JavaScript */
-  .nav-links.active {
-    display: flex;
+  /* --- TRIGGERED STATES via JAVASCRIPT --- */
+
+  /* Slide the navigation drawer in from the left */
+  .navbar .nav-links.open {
+    left: 0;
+  }
+
+  /* Morphing lines animation to create the "X" */
+  .hamburger-btn.active .line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger-btn.active .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-btn.active .line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
   }
 }
+
 
 .job, h2, h3, h4{
     font-family: Arial, Helvetica, sans-serif;
@@ -118,15 +165,13 @@ li{
     list-style: none;
     font-family: Arial, Helvetica, sans-serif;
 }
-a{
+ li a{
     text-decoration: none;
     color: white;
 }
-a:hover{
-    text-decoration: underline;
-}
+
 footer {
-    background-color: #333;
+    background-color: #1b1b1b;
     border-top: 3px solid #ED3814;
     display: flex;
     justify-content: space-between;
@@ -140,20 +185,16 @@ footer a {
     padding-left: 25px;
     padding-right: 25px;
     font-family: "Geo", Arial, Helvetica, sans-serif;
+    text-decoration: none;
 }
 ul li a {
     display: block;
-    color: black;
     font-family: Arial, Helvetica, sans-serif;
 }
 ul li a:hover, a:active {
     color: white;
     font-family: "Geo",sans-serif;
     font-size: 1.5rem;
-}
-a.active {
-    color: #ED3814; 
-    text-decoration: underline;
 }
 h1{
     font-family: "Geo", sans-serif;
@@ -176,8 +217,8 @@ h2{
 main.about{
     display: flex;
 }
-.about h3, .about h4 {
-    color:#ED3814
+.about .education h3, .about .education h4 {
+    color: white;
 }
 main.contact{
     background-color: #ED3814;
@@ -196,12 +237,13 @@ main.contact{
 }
 .grid-item img{
     box-shadow: none;
-    width: 100%;
+    width: 400px;
     height: auto;
     border-radius: 10px;
 }
 .grid-item{
    overflow: hidden;
+   width: 400px;
 }
 figcaption{
     padding: 1rem;
@@ -219,9 +261,10 @@ section.contact{
     padding: 0;
     text-align: center;
 }
-section.contact h2 {
+section.contact h2 a {
     font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
+    color: white;
 }
 section.education, section.skills, section.skillz {
     background-color: #333;
@@ -229,14 +272,12 @@ section.education, section.skills, section.skillz {
 section.skillz{
     padding-top: 2.5%;
     display: flex;
-    
-    
 }
 section.skills{
     padding-bottom: 0;
 }
-section.education h2, section.skills h2, section.contact h2 {
-    color: white;
+section.education h2, section.skills h2 {
+    color: #ED3814;
 }
 .skillz ul {
 width: 100%;
@@ -246,6 +287,6 @@ flex-wrap: wrap;
 .skillz li{
     list-style: circle;
     padding: 10px;
-    color: #ED3814;
+    color: white;
 }
 
