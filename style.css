@@ -8,19 +8,85 @@ html, body {
     display: flex;
     flex-direction: column;
 }
-header{
+/* Base Navbar Styles */
+.navbar {
+  border-bottom: 3px solid #ED3814;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+}
+.nav-logo a {
+  color: #ED3814;
+  font-family: "Geo", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ED3814; /* Green accent color */
+}
+
+/* Hide Hamburger Icon on Desktop */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Breakdown (Mobile Layout) */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* Show hamburger icon */
+  }
+
+  .nav-links {
+    display: none; /* Hide links by default on mobile */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px; /* Adjust based on navbar height */
+    left: 0;
+    background-color: #333;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .nav-links li {
+    padding: 0.75rem 0;
+  }
+
+  /* Class to trigger via JavaScript */
+  .nav-links.active {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 25px;
-    background-color: #ED3814;
+  }
 }
-header h2, .about h2, .project h2 {
-    font-family: "Geo", sans-serif;
-    font-size: 3rem;
-    color: #ED3814;
-}
-.job, h3, h4{
+
+.job, h2, h3, h4{
     font-family: Arial, Helvetica, sans-serif;
 }
 main{
@@ -59,10 +125,21 @@ a{
 a:hover{
     text-decoration: underline;
 }
+footer {
+    background-color: #333;
+    border-top: 3px solid #ED3814;
+    display: flex;
+    justify-content: space-between;
+}
+footer.contact{
+    display: flex;
+    justify-content: center;
+}
 footer a {
     color:#ED3814;
     padding-left: 25px;
     padding-right: 25px;
+    font-family: "Geo", Arial, Helvetica, sans-serif;
 }
 ul li a {
     display: block;
@@ -75,9 +152,8 @@ ul li a:hover, a:active {
     font-size: 1.5rem;
 }
 a.active {
-    color: white;
-    font-family: 'Geo',sans-serif;
-    font-size: 2rem;
+    color: #ED3814; 
+    text-decoration: underline;
 }
 h1{
     font-family: "Geo", sans-serif;
@@ -99,6 +175,9 @@ h2{
 /*Pages */
 main.about{
     display: flex;
+}
+.about h3, .about h4 {
+    color:#ED3814
 }
 main.contact{
     background-color: #ED3814;
@@ -140,8 +219,12 @@ section.contact{
     padding: 0;
     text-align: center;
 }
+section.contact h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+}
 section.education, section.skills, section.skillz {
-    background-color: #ED3814;
+    background-color: #333;
 }
 section.skillz{
     padding-top: 2.5%;
@@ -163,12 +246,6 @@ flex-wrap: wrap;
 .skillz li{
     list-style: circle;
     padding: 10px;
+    color: #ED3814;
 }
-footer {
-    display: flex;
-    justify-content: space-between;
-}
-footer.contact{
-    display: flex;
-    justify-content: center;
-}
+

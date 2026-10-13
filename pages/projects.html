@@ -12,16 +12,21 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body class="project">
-<header>
-    <h2><a href="../index.html">CAG</a></h2>
-    <nav>
-        <ul>
-            <li><A href="./about.html">ABOUT</A></li>
-            <li><A class="active" href="#">PROJECTS</A></li>
-            <li><A href="./contact.html">CONTACT</A></li>
-        </ul>
+<nav class="navbar">
+        <h2 class="nav-logo"><a href="../index.html">CAG</a></h2>
+
+         <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation">
+           <span class="bar"></span>
+           <span class="bar"></span>  
+           <span class="bar"></span> 
+         </button>
+
+         <ul class="nav-links">
+            <li><A href="about.html">ABOUT</A></li>
+            <li><A class="active" href="projects.html">PROJECTS</A></li>
+            <li><A href="contact.html">CONTACT</A></li>
+         </ul>
     </nav>
-</header>
 <main class="projects">
     <figure class="grid-item">
         <img src="../assets/teaCozyImg.png">
@@ -44,7 +49,7 @@
 </main>
 <footer>
     <h2><a href="../index.html">CAG</a></h2>
-    <h2><a href="./projects.html">TO TOP</a></h2>
+    <h2><a href="projects.html">TO TOP</a></h2>
 </footer>
 <script src="../script.js"></script>
 </body>
