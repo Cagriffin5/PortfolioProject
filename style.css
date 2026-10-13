@@ -240,13 +240,12 @@ main.contact{
 }
 .grid-item img{
     box-shadow: none;
-    width: 400px;
+    width: 100%;
     height: auto;
     border-radius: 10px;
 }
 .grid-item{
    overflow: hidden;
-   width: 400px;
 }
 figcaption{
     padding: 1rem;
