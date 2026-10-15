@@ -4,76 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAG Portfolio / About</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geo:ital@0;1&display=swap" rel="stylesheet">
     
-    <!-- Link external CSS styles here -->
     <link rel="stylesheet" href="../style.css">
 </head>
 <body class="about">
-  <nav class="navbar">
-        <h2 class="nav-logo"><a href="../index.html">CAG</a></h2>
 
-         <button class="hamburger-btn"  aria-label="Toggle navigation" aria-expanded="false">
-           <span class="bar"></span>
-           <span class="bar"></span>  
-           <span class="bar"></span> 
-         </button>
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <h2 class="nav-logo"><a href="../index.html">CAG</a></h2>
 
-         <ul class="nav-links">
-            <li><A class="active" href="about.html">ABOUT</A></li>
-            <li><A href="projects.html">PROJECTS</A></li>
-            <li><A href="contact.html">CONTACT</A></li>
-         </ul>
-    </nav>
-<main class="about">
-    <section class="bio">
-        <h2>BIO</h2>
-        <p>Dedicated Front-End Designer and U.S. Marine Corps Veteran offering a robust foundation in both technical engineering and visual arts. Holds a Bachelor’s degree in Web Development, an Associate’s degree in Graphic Design, and a Codecademy Front-End Web Developer Certification.
-        Combines structured, disciplined problem-solving cultivated as a Lance Corporal with advanced skills in modern UI/UX design, semantic HTML, responsive CSS, and JavaScript interfaces. Highly adept at translating complex wireframes into high-performance, pixel-perfect web experiences. Eager to contribute a strong work ethic, collaborative spirit, and a dual design-code mindset to an innovative front-end development team.</p>
-    </section>
-    
-    <section class="education">
-        <h2>EDUCATION</h2>
-        <h3>BS Media Arts, Web Design & Development</h3>
-        <h4>Platt College San Diego 06/2023</h4>
-        <h3>AAS Graphic Design</h3>
-        <h4>Platt College San Diego 08/2020</h4>
-        <h3>Front End Engineer Professional Certificate</h3>
-        <h4>CodeCademy (In progress expected 10/2026 )</h4>
-    </section>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark mode">🌓</button>
+                <button class="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="line"></span>
+                    <span class="line"></span>  
+                    <span class="line"></span> 
+                </button>
+            </div>
 
-    <section class="work">
-        <h2>WORK</h2>
-        <p>"Bartending is the art of balancing high-concurrency event handling, rapid debugging under pressure, and maintaining an intuitive, pleasant user interface (the bar top) for a diverse user base."</p>
-        <h3>Bartender</h3>
-        <h4>Sip Wine & Beer</h4>
-        <h4>San Diego CA. 08/2025 to 07/2026</h4>
-        <h3>Bartender</h3>
-        <h4>The Pioneer BBQ</h4>
-        <h4>San Diego CA. 07/2021 to 07/2025</h4>
-    </section>
-     <section class="skills">
-        <h2>SKILLS</h2>
-    </section>
-    <section class="skillz">
-       <ul>
-        <li>HTML5</li>
-        <li>CSS3</li>
-        <li>JavaScript (ES6)</li>
-        <li>Git/GITHUB</li>
-        <li>Responsive Web Design</li>
-        <li>FIGMA</li>
-        <li>ADOBE CC</li>
-        <li>UI/UX</li>
-       </ul>
-    </section>
-</main>
-<footer>
-    <h2><a href="../index.html">CAG</a></h2>
-    <h2><a href="about.html">TO TOP</a></h2>
-</footer>
-<script src="../script.js"></script>
+            <ul class="nav-links">
+                <li><a class="active" href="about.html">ABOUT</a></li>
+                <li><a href="projects.html">PROJECTS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="playground.html">PLAYGROUND</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="about">
+        <section class="bio">
+            <h2>BIO</h2>
+            <p>I am a Front-End Designer and U.S. Marine Corps Veteran who treats code as an engineering discipline and visual design as an art form. Backed by a Bachelor’s in Web Development, an Associate’s in Graphic Design, and rigorous engineering credentials from Codecademy, I bring a highly comprehensive skill set to development pipelines.</p>
+            <p>My technical approach combines the structured, mission-driven problem-solving I honed as a Marine Lance Corporal with a modern mastery of visual interfaces. I specialize in translating complex Figma and Adobe Creative Cloud wireframes into pixel-perfect, lightning-fast, and universally accessible web architectures. I thrive in collaborative environments that demand technical accountability, rapid iteration, and a dual design-code execution mindset.</p>
+        </section>
+        
+        <section class="education">
+            <h2>EDUCATION</h2>
+            
+            <div class="edu-item">
+                <h3>BS Media Arts, Web Design & Development</h3>
+                <p class="meta-details">Platt College San Diego — 06/2023</p>
+            </div>
+
+            <div class="edu-item">
+                <h3>AAS Graphic Design</h3>
+                <p class="meta-details">Platt College San Diego — 08/2020</p>
+            </div>
+
+            <div class="edu-item">
+                <h3>Front End Engineer Professional Certificate</h3>
+                <p class="meta-details">Codecademy — In progress, expected 10/2026</p>
+            </div>
+        </section>
+
+        <section class="work">
+            <h2>WORK EXPERIENCE</h2>
+            <p class="quote">"High-volume bartending is a live environment. It is the art of balancing asynchronous request handling, rapid debugging under pressure, and maintaining an intuitive, reliable interface for a diverse user base."</p>
+            
+            <div class="job-item">
+                <h3>Lead Bartender</h3>
+                <p class="meta-details">Sip Wine & Beer — San Diego, CA (08/2025 to 07/2026)</p>
+            </div>
+
+            <div class="job-item">
+                <h3>Lead Bartender</h3>
+                <p class="meta-details">The Pioneer BBQ — San Diego, CA (07/2021 to 07/2025)</p>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2>SKILLS</h2>
+            <ul class="skills-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript (ES6)</li>
+                <li>Git / GitHub</li>
+                <li>Responsive Design</li>
+                <li>Figma</li>
+                <li>Adobe CC</li>
+                <li>UI / UX</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo"><a href="../index.html">CAG</a></div>
+        <div class="footer-nav"><a href="about.html">TO TOP</a></div>
+    </footer>
+
+    <script src="../script.js"></script>
 </body>
 </html>

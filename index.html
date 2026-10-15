@@ -4,36 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAG Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geo:ital@0;1&display=swap" rel="stylesheet">
-    
-    <!-- Link external CSS styles here -->
+
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <h2 class="nav-logo"><a href="index.html">CAG</a></h2>
 
-         <button class="hamburger-btn"  aria-label="Toggle navigation" aria-expanded="false">
-           <span class="line"></span>
-           <span class="line"></span>  
-           <span class="line"></span> 
-         </button>
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <h2 class="nav-logo"><a href="index.html">CAG</a></h2>
 
-         <ul class="nav-links">
-            <li><A href="./pages/about.html">ABOUT</A></li>
-            <li><A href="./pages/projects.html">PROJECTS</A></li>
-            <li><A href="./pages/contact.html">CONTACT</A></li>
-         </ul>
-    </nav>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark mode">🌓</button>
+                <button class="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="line"></span>
+                    <span class="line"></span>  
+                    <span class="line"></span> 
+                </button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="./pages/about.html">ABOUT</a></li>
+                <li><a href="./pages/projects.html">PROJECTS</a></li>
+                <li><a href="./pages/contact.html">CONTACT</a></li>
+                <li><a href="./pages/playground.html">PLAYGROUND</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-        <img src="./assets/6B7B959B-DE73-4C79-BD01-632C23A8C4EE.PNG">
+        <!-- Added descriptive alternative text for accessibility -->
+        <img src="./assets/6B7B959B-DE73-4C79-BD01-632C23A8C4EE.PNG" alt="Cameron Griffin portrait" class="profile-img">
         <h1><span>C</span>AMERON <span>G</span>RIFFIN</h1>
-        <h2 class="job">Front End Developer</h2>
+        <h2 class="job">Front-End Developer & UI Designer</h2>
+        <p style="text-align: center; max-width: 600px; margin: 1rem auto var(--accent-color);">
+            <em>“Disciplined execution meets creative intuition. I bridge the gap between complex design frameworks and high-performance, accessible code.”</em>
+        </p>
     </main>
 
+    <footer>
+        <div class="footer-logo"><a href="index.html">CAG</a></div>
+    </footer>
 
-<script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
+

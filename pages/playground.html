@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAG Portfolio / Color Playground</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Geo:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Specific page layout to center the content perfectly */
+        main.playground {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 160px); /* Centers vertically between header and footer */
+            padding: 24px;
+            transition: background-color 0.4s ease; /* Smooth color shifting transition */
+        }
+
+        .color-btn {
+            font-family: "Geo", sans-serif;
+            font-size: 1.75rem;
+            padding: 15px 35px;
+            cursor: pointer;
+            border-radius: 12px;
+            background-color: var(--panel-bg);
+            color: var(--text-primary);
+            border: 3px solid var(--accent-color);
+            box-shadow: 6px 6px 0px var(--accent-color);
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .color-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px var(--accent-color);
+        }
+
+        .color-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 2px 2px 0px var(--accent-color);
+        }
+
+        /* Displays the active background hex code for a premium UI touch */
+        .color-code {
+            margin-top: 24px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            background: var(--panel-bg);
+            padding: 8px 16px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        /* Container must span the entire interactive viewport area */
+#trail-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Crucial: allows clicks to pass right through to buttons underneath */
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* Individual particle layout definitions */
+.particle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%; /* Makes particles perfectly circular */
+  pointer-events: none;
+  transform: translate(-50%, -50%); /* Centers the particle precisely on the cursor tip */
+  animation: particleFade 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+/* Animation handling hardware accelerated scaling and fading sequences */
+@keyframes particleFade {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0;
+  }
+}
+/* Animation handling the explosive trajectory paths */
+@keyframes sparkBurst {
+  0% {
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    /* Uses the custom properties (--dx, --dy) set by JS for random vectors */
+    transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) scale(0.1);
+    opacity: 0;
+  }
+}
+
+/* Class assigned specifically to click-generated explosion particles */
+.particle.spark {
+  animation: sparkBurst 0.8s cubic-bezier(0.1, 0.8, 0.25, 1) forwards;
+}
+
+
+    </style>
+</head>
+<body class="playground-page">
+
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <h2 class="nav-logo"><a href="../index.html">CAG</a></h2>
+
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark mode">🌓</button>
+                <button class="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="line"></span>
+                    <span class="line"></span>  
+                    <span class="line"></span> 
+                </button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="projects.html">PROJECTS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a CLASS="active" href="playground.html">PLAYGROUND</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- The shifting zone is locked to the main content wrapper -->
+    <main class="playground" id="color-workspace">
+        <!-- Particle Canvas Stage Container -->
+        <div id="trail-container" aria-hidden="true"></div>
+
+        <button id="generator-trigger" class="color-btn" aria-live="polite">
+            RANDOM COLOR PICKER
+        </button>
+        <div id="hex-display" class="color-code">Active Theme Base</div>
+    </main>
+
+    <footer>
+        <div class="footer-logo"><a href="../index.html">CAG</a></div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Dedicated page logic running alongside your global layout engine
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('generator-trigger');
+            const workspace = document.getElementById('color-workspace');
+            const display = document.getElementById('hex-display');
+
+            if (trigger && workspace && display) {
+                trigger.addEventListener('click', () => {
+                    // Generate random hex value strings
+                    const randomHex = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+                    
+                    // Inject color natively to override standard theme variables locally
+                    workspace.style.backgroundColor = randomHex;
+                    
+                    // Display text updates dynamically for screen-reader tracking updates
+                    display.textContent = `HEX: ${randomHex.toUpperCase()}`;
+                });
+            }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('trail-container');
+  
+  let lastSpawnTime = 0;
+  const spawnDelay = 15; // Particle throttle in milliseconds for cursor tracking
+
+  if (container) {
+    // A. Keep tracking mouse movement for the base trail
+    window.addEventListener('mousemove', (e) => {
+      const now = performance.now();
+      if (now - lastSpawnTime > spawnDelay) {
+        createParticle(e.clientX, e.clientY, false); // false = regular hover trail
+        lastSpawnTime = now;
+      }
+    });
+
+    // B. Trigger explosive spark burst on click
+    window.addEventListener('click', (e) => {
+      const sparkCount = 15; // Amount of sparks generated per click burst
+      
+      for (let i = 0; i < sparkCount; i++) {
+        createParticle(e.clientX, e.clientY, true); // true = explosive spark
+      }
+    });
+  }
+
+  function createParticle(x, y, isSpark) {
+    const particle = document.createElement('span');
+    particle.classList.add('particle');
+
+    // Build common variations
+    const size = Math.floor(Math.random() * 10) + 6; // Dimensions ranging 6px to 16px
+    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+
+    // Core layout coordinates
+    particle.style.left = `${x}px`;
+    particle.style.top = `${y}px`;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.backgroundColor = randomColor;
+    particle.style.boxShadow = `0 0 8px ${randomColor}`;
+
+    // Apply spark physics trajectory parameters
+    if (isSpark) {
+      particle.classList.add('spark');
+      
+      // Calculate a random 360-degree angle and radius displacement vector
+      const angle = Math.random() * Math.PI * 2;
+      const velocity = Math.floor(Math.random() * 120) + 50; // Distance reach scale (50px to 170px)
+      
+      const dx = Math.cos(angle) * velocity;
+      const dy = Math.sin(angle) * velocity;
+
+      // Pass the computed trajectory directly into the CSS engine via Custom properties
+      particle.style.setProperty('--dx', `${dx}px`);
+      particle.style.setProperty('--dy', `${dy}px`);
+    }
+
+    container.appendChild(particle);
+
+    // Garbage collection safety cleanup loop sequence
+    const lifespan = isSpark ? 800 : 600; // Matches animation duration timings
+    setTimeout(() => {
+      particle.remove();
+    }, lifespan);
+  }
+});
+
+
+    </script>
+</body>
+</html>

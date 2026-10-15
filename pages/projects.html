@@ -3,54 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAG Portfolio / Contact</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geo:ital@0;1&display=swap" rel="stylesheet">
-    
-    <!-- Link external CSS styles here -->
+    <title>CAG Portfolio / Projects</title>
+   
     <link rel="stylesheet" href="../style.css">
 </head>
 <body class="project">
-<nav class="navbar">
-        <h2 class="nav-logo"><a href="../index.html">CAG</a></h2>
 
-         <button class="hamburger-btn"  aria-label="Toggle navigation" aria-expanded="false">
-           <span class="bar"></span>
-           <span class="bar"></span>  
-           <span class="bar"></span> 
-         </button>
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <h2 class="nav-logo"><a href="../index.html">CAG</a></h2>
 
-         <ul class="nav-links">
-            <li><A href="about.html">ABOUT</A></li>
-            <li><A class="active" href="projects.html">PROJECTS</A></li>
-            <li><A href="contact.html">CONTACT</A></li>
-         </ul>
-    </nav>
-<main class="projects">
-    <figure class="grid-item">
-        <img src="../assets/asset-tracking.png">
-        <figcaption>
-            <p><a href="https://cagriffin5.github.io/asset-vault-tracker/" target="_blank">Asset Tracking App</a></p>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark mode">🌓</button>
+                <button class="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="line"></span>
+                    <span class="line"></span>  
+                    <span class="line"></span> 
+                </button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a class="active" href="projects.html">PROJECTS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="playground.html">PLAYGROUND</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="projects">
+        <figure class="grid-item">
+            <img src="../assets/asset-tracking.png" alt="Dashboard layout screen showing AssetVault tracking analytics interface">
+            <figcaption>
+                <p>
+                    <a href="https://github.io" target="_blank" rel="noopener noreferrer">
+                        Asset Tracking App
+                    </a>
+                </p>
             </figcaption>
-    </figure>
-    <figure class="grid-item">
-        <img src="../assets/bar-pos.png">
-        <figcaption>
-            <p><a href="https://cagriffin5.github.io/bar-pos-interface/" target="_blank">Bar POS Interface</a></p>
-        </figcaption>
-    </figure>
-    <figure class="grid-item">
-        <img src="../assets/smart-spend.png">
-        <figcaption>
-            <p><a href="https://cagriffin5.github.io/smartspend-dashboard/" target="_blank">Smart Spend Budgeting App</a></p>
-        </figcaption>
-    </figure>  
-</main>
-<footer>
-    <h2><a href="../index.html">CAG</a></h2>
-    <h2><a href="projects.html">TO TOP</a></h2>
-</footer>
-<script src="../script.js"></script>
+        </figure>
+
+        <figure class="grid-item">
+            <img src="../assets/bar-pos.png" alt="Point of Sale control surface screen showing live multi-tier service registers">
+            <figcaption>
+                <p>
+                    <a href="https://github.io" target="_blank" rel="noopener noreferrer">
+                        Bar POS Interface
+                    </a>
+                </p>
+            </figcaption>
+        </figure>
+
+        <figure class="grid-item">
+            <img src="../assets/smart-spend.png" alt="Financial summary ledger platform monitoring personal balance analytics accounts">
+            <figcaption>
+                <p>
+                    <a href="https://github.io" target="_blank" rel="noopener noreferrer">
+                        Smart Spend Budgeting App
+                    </a>
+                </p>
+            </figcaption>
+        </figure>  
+    </main>
+
+    <footer>
+        <div class="footer-logo"><a href="../index.html">CAG</a></div>
+        <div class="footer-nav"><a href="projects.html">TO TOP</a></div>
+    </footer>
+
+    <script src="../script.js"></script>
 </body>
 </html>
+
